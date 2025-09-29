@@ -1,0 +1,24 @@
+<div class="login-container">
+  <h1 class="login-title">Pixel Crochet</h1>
+  <p class="login-subtitle">Connectez-vous pour accéder à vos créations</p>
+
+  <form>
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      required
+      ngModel
+      class="login-input"
+    />
+    <input
+      type="password"
+      name="password"
+      placeholder="Mot de passe"
+      required
+      ngModel
+      class="login-input"
+    />
+    <button (click)="onLogin()" class="login-btn">Se connecter</button>
+  </form>
+</div>

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+.login-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  background: linear-gradient(to bottom, #fde2e4, #da8c96);
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.login-title {
+
+  font-family: "Jersey 10", sans-serif;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #b23a48;
+  margin-bottom: 1rem;
+}
+
+.login-subtitle {
+  font-size: 1.3rem;
+  color: #da8c96;
+  max-width: 600px;
+  margin-bottom: 5rem;
+}
+
+.login-input {
+  display: block;
+  width: 300px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: 2px solid #b23a48;
+  font-size: 1rem;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #b23a48;
+  border-radius: 12px;
+  background: #fde2e4;
+  color: #b23a48;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #b23a48;
+  color: #fde2e4;
+}
