@@ -13,31 +13,65 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
   styleUrls: ['./new-pattern.component.scss']
 })
 export class NewPatternComponent {
-  gridSize = 16;
+  gridSizeControl = new FormControl(16);
   grid: string[][] = [];
-  colorControl = new FormControl('#b23a48');
+  colorControl = new FormControl('#000000');
+
+  history: string[][][] = [];
+  currentStep: number = -1;
 
   constructor(private router: Router) {
     this.initGrid();
   }
 
   initGrid() {
-    this.grid = Array.from({ length: this.gridSize }, () =>
-      Array.from({ length: this.gridSize }, () => '#ffffff')
+    const size = this.gridSizeControl.value ?? 16;
+    this.grid = Array.from({ length: size }, () =>
+      Array.from({ length: size }, () => '#ffffff')
     );
+    this.pushHistory();
+  }
+
+  pushHistory() {
+    this.history = this.history.slice(0, this.currentStep + 1);
+    const gridClone = this.grid.map(row => [...row]);
+    this.history.push(gridClone);
+    this.currentStep++;
   }
 
   paintCell(row: number, col: number) {
     this.grid[row][col] = this.colorControl.value || '#b23a48';
+    this.pushHistory();
   }
 
   clearGrid() {
     this.initGrid();
+    this.pushHistory();
   }
 
-  savePattern() {
-    console.log('Patron sauvegardé :', this.grid);
-    alert('✨ Patron sauvegardé avec succès !');
+  undo() {
+    if (this.currentStep > 0) {
+      this.currentStep--;
+      this.grid = this.history[this.currentStep].map(row => [...row]);
+    }
+  }
+
+  redo() {
+    if (this.currentStep < this.history.length - 1) {
+      this.currentStep++;
+      this.grid = this.history[this.currentStep].map(row => [...row]);
+    }
+  }
+
+  canUndo(): boolean {
+    return this.currentStep > 0;
+  }
+
+  canRedo(): boolean {
+    return this.currentStep < this.history.length - 1;
+  }
+  canClear(): boolean{
+    return this.grid.some(row => row.some(cell => cell !== '#ffffff'));
   }
 
   goToHome() {

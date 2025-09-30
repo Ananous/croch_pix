@@ -1,15 +1,16 @@
 <div class="create-wrapper">
     <header class="header">
-        <app-button [size]="'little'" (clickEvent)="goToHome()" [label]="'Retour à l\'accueil'"></app-button> <h1 class="title">Nouveau patron</h1>
+        <app-button [size]="'little'" (clickEvent)="goToHome()" [label]="'Retour à l\'accueil'"></app-button>
+        <h1 class="title">Nouveau patron</h1>
     </header>
 
     <div class="create-container">
-       
+
 
         <div class="controls">
             <input type="color" [formControl]="colorControl" />
             <p>Couleur sélectionnée : {{ colorControl.value }}</p>
-            
+
         </div>
 
         <div class="grid">
@@ -20,9 +21,10 @@
         </div>
 
         <div class="buttons">
-            <app-button (clickEvent)="clearGrid()" [label]="'Tout Effacer'"></app-button>
-            <app-button (clickEvent)="savePattern()" [label]="'Sauvegarder'"></app-button>
-
+            <app-button [isDisable]="!canUndo()" (clickEvent)="undo()" [label]="'↩'"></app-button>
+            <app-button [isDisable]="!canRedo()" (clickEvent)="redo()" [label]="'↪'"></app-button>
+            <app-button [isDisable]="!canClear()" (clickEvent)="clearGrid()" [label]="'Tout Effacer'"></app-button>
+            <app-button [label]="'Sauvegarder'"></app-button>
         </div>
     </div>
     <app-footer></app-footer>

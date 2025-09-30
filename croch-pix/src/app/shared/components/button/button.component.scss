@@ -15,6 +15,7 @@ button:hover {
     color: var(--color-very-light-pink-2);
 }
 
+
 .little {
     padding: 0.5rem 1rem;
     border-radius: 12px;
@@ -28,4 +29,18 @@ button:hover {
 
 .normal:hover {
     transform: scale(1.05);
+}
+button:disabled {
+    background: var(--color-very-light-pink-2-t);
+    color: var(--color-grey); /* couleur grisée */
+    border-color: var(--color-grey); /* bordure grisée */
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+button:disabled:hover {
+    box-shadow: none;
+    background: var(--color-very-light-pink-2-t);
+    color:var(--color-grey);
 }

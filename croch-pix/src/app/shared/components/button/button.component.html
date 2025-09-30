@@ -1,1 +1,2 @@
-<button (click)="clickEvent.emit()" [ngClass]="size">{{label}}</button>
+<button (click)="clickEvent.emit()"
+[disabled]="isDisable" [ngClass]="size">{{label}}</button>
