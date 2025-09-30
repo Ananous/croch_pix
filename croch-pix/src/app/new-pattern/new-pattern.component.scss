@@ -87,20 +87,25 @@ header app-button {
 .buttons {
     display: flex;
     gap: 1rem;
+}
 
-    button {
-        padding: 0.6rem 1.2rem;
-        border: 2px solid var(--color-primary, #b23a48);
-        border-radius: 8px;
-        background: var(--color-secondary, #fde2e4);
-        color: var(--color-primary, #b23a48);
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s;
+.used-colors {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
 
-        &:hover {
-            background: var(--color-primary, #b23a48);
-            color: var(--color-secondary, #fde2e4);
-        }
-    }
+.color-swatch {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    border-color: var(--color-primary, #b23a48);
 }

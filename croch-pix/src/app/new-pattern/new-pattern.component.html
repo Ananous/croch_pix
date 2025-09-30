@@ -9,7 +9,11 @@
 
         <div class="controls">
             <input type="color" [formControl]="colorControl" />
-            <p>Couleur sélectionnée : {{ colorControl.value }}</p>
+            <p>Couleurs utilisées dans la grille :</p>
+                <div class="used-colors">
+                    <span *ngFor="let color of usedColors" [style.background]="color" class="color-swatch"
+                        (click)="selectUsedColor(color)"></span>
+                </div>
 
         </div>
 

@@ -44,6 +44,20 @@ export class NewPatternComponent {
     this.pushHistory();
   }
 
+  get usedColors(): string[] {
+    const colorsSet = new Set<string>();
+    this.grid.forEach(row => {
+      row.forEach(cell => {
+        colorsSet.add(cell);
+      });
+    });
+    return Array.from(colorsSet);
+  }
+
+  selectUsedColor(color: string) {
+    this.colorControl.setValue(color);
+  }
+
   clearGrid() {
     this.initGrid();
     this.pushHistory();
@@ -70,7 +84,7 @@ export class NewPatternComponent {
   canRedo(): boolean {
     return this.currentStep < this.history.length - 1;
   }
-  canClear(): boolean{
+  canClear(): boolean {
     return this.grid.some(row => row.some(cell => cell !== '#ffffff'));
   }
 
