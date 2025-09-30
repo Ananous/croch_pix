@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { Router } from '@angular/router';
 import { FooterComponent } from '../shared/components/footer/footer.component';
+import { SubtitleComponent } from '../shared/components/subtitle/subtitle.component';
 
 @Component({
   selector: 'app-new-pattern',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ButtonComponent, FooterComponent],
+  imports: [ReactiveFormsModule, CommonModule, ButtonComponent, FooterComponent,SubtitleComponent],
   templateUrl: './new-pattern.component.html',
   styleUrls: ['./new-pattern.component.scss']
 })
@@ -22,6 +23,23 @@ export class NewPatternComponent {
 
   constructor(private router: Router) {
     this.initGrid();
+  }
+
+  isPainting = false;
+
+  startPainting(row: number, col: number) {
+    this.isPainting = true;
+    this.paintCell(row, col);
+  }
+
+  stopPainting() {
+    this.isPainting = false;
+  }
+
+  hoverPaint(row: number, col: number) {
+    if (this.isPainting) {
+      this.paintCell(row, col);
+    }
   }
 
   initGrid() {

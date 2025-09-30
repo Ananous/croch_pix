@@ -10,19 +10,22 @@
         <div class="controls">
             <input type="color" [formControl]="colorControl" />
             <p>Couleurs utilisées dans la grille :</p>
-                <div class="used-colors">
-                    <span *ngFor="let color of usedColors" [style.background]="color" class="color-swatch"
-                        (click)="selectUsedColor(color)"></span>
-                </div>
+            <div class="used-colors">
+                <span *ngFor="let color of usedColors" [style.background]="color" class="color-swatch"
+                    (click)="selectUsedColor(color)"></span>
+            </div>
 
         </div>
 
-        <div class="grid">
+        <div class="grid" (mouseup)="stopPainting()" (mouseleave)="stopPainting()">
             <div *ngFor="let row of grid; let i = index" class="row">
                 <div *ngFor="let cell of row; let j = index" class="cell" [style.background]="cell"
-                    (click)="paintCell(i, j)"></div>
+                    (mousedown)="startPainting(i, j)" (mouseover)="hoverPaint(i, j)">
+                </div>
             </div>
         </div>
+
+
 
         <div class="buttons">
             <app-button [isDisable]="!canUndo()" (clickEvent)="undo()" [label]="'↩'"></app-button>
@@ -30,6 +33,11 @@
             <app-button [isDisable]="!canClear()" (clickEvent)="clearGrid()" [label]="'Tout Effacer'"></app-button>
             <app-button [label]="'Sauvegarder'"></app-button>
         </div>
+
+        @if (isPainting) {
+        <app-subtitle
+            [subtText]="'Vous êtes entrain d\'utiliser la fonction dessin, pour quitter relachez ou cliquez'"></app-subtitle>
+        }
     </div>
     <app-footer></app-footer>
 </div>
