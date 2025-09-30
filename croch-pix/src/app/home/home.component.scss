@@ -4,36 +4,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(to bottom, #fde2e4, #da8c96);
+    background: linear-gradient(to bottom, var(--color-very-light-pink), var(--color-light-pink));
     font-family: "Quicksand", sans-serif;
     box-sizing: border-box;
 }
 
-/* Header */
 .header {
     display: flex;
     justify-content: flex-end;
     padding: 1rem 2rem;
 }
 
-.login-btn {
-    font-family: "Quicksand", sans-serif;
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
-    border: 2px solid #b23a48;
-    background: #fde2e4;
-    color: #b23a48;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.login-btn:hover {
-    background: #b23a48;
-    color: #fde2e4;
-}
-
-/* Main home container */
 .home-container {
     flex: 1;
     display: flex;
@@ -43,56 +24,10 @@
     padding: 2rem;
 }
 
-.title {
-    font-family: "Jersey 10", sans-serif;
-    font-size: 5rem;
-    font-weight: bold;
-    color: #b23a48;
-    margin-bottom: 1rem;
-}
-
-.subtitle {
-    font-size: 1.3rem;
-    color: #da8c96;
-    max-width: 600px;
-    margin-bottom: 3rem;
-}
-
 .buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.action-btn {
-    font-family: "Quicksand", sans-serif;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 14px;
-    border: 2px solid #b23a48;
-    background: #fde2e4;
-    color: #b23a48;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.action-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    background: #b23a48;
-    color: #fde2e4;
-    transform: scale(1.05);
-}
-
-/* Footer */
-.footer {
-    width: 100%;
-    padding: 1rem 0;
-    text-align: center;
-    color: #b23a48;
-    font-weight: 500;
-    font-size: 0.9rem;
+    margin-bottom: 3rem;
 }

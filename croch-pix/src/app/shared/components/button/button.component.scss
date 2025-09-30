@@ -1,0 +1,32 @@
+button {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    border: 2px solid var(--color-pink);
+    background: var(--color-very-light-pink);
+    color:var(--color-pink);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: var(--color-pink);
+    color: var(--color-very-light-pink);
+}
+
+.little {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+}
+
+.normal {
+    padding: 1rem 2rem;
+    border-radius: 14px;
+
+    font-size: 1rem;
+}
+
+.normal:hover {
+    transform: scale(1.05);
+}

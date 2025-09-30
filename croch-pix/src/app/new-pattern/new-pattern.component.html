@@ -1,0 +1,29 @@
+<div class="create-wrapper">
+    <header class="header">
+        <app-button [size]="'little'" (clickEvent)="goToHome()" [label]="'Retour à l\'accueil'"></app-button>
+    </header>
+
+    <div class="create-container">
+        <h1 class="title">Créer un nouveau patron</h1>
+
+        <div class="controls">
+            <input type="color" [formControl]="colorControl" />
+            <p>Couleur sélectionnée : {{ colorControl.value }}</p>
+            
+        </div>
+
+        <div class="grid">
+            <div *ngFor="let row of grid; let i = index" class="row">
+                <div *ngFor="let cell of row; let j = index" class="cell" [style.background]="cell"
+                    (click)="paintCell(i, j)"></div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <app-button (clickEvent)="clearGrid()" [label]="'Tout Effacer'"></app-button>
+            <app-button (clickEvent)="savePattern()" [label]="'Sauvegarder'"></app-button>
+
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
