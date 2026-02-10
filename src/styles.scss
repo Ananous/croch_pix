@@ -1,0 +1,24 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --color-white: #fff;
+  --color-white-t: rgba(255, 255, 255, 0.5);
+  --color-very-light-pink-2: #fde2e4;
+  --color-very-light-pink-2-t: #fde2e4b7;
+  --color-very-light-pink: #fdd3d5;
+  --color-light-pink: #da8c96;
+  --color-pink: #b23a48;
+  --color-dark-pink: #53151d;
+  --color-grey: #afafaf;
+}

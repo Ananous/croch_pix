@@ -1,0 +1,9 @@
+<button
+  (click)="handleClick()"
+  [disabled]="isDisable()"
+  [ngClass]="[size(), variant()]">
+  <ng-content></ng-content>
+  @if (label()) {
+    <span>{{ label() }}</span>
+  }
+</button>

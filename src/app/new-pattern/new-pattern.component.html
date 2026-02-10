@@ -1,0 +1,74 @@
+<div class="create-wrapper">
+  <header class="header">
+    <app-button
+      [size]="'little'"
+      [variant]="'ghost'"
+      [label]="'← Retour'"
+      (clickEvent)="goToHome()">
+    </app-button>
+    <h1 class="title">Nouveau patron</h1>
+  </header>
+  <div class="create-container">
+    <div class="workspace-card">
+      <div class="controls">
+        <div class="color-picker-wrapper">
+          <input
+            type="color"
+            [value]="selectedColor()"
+            (input)="onColorChange($event)"
+          />
+        </div>
+        <div class="used-colors">
+          @for (color of usedColors(); track color) {
+            <span
+              class="color-swatch"
+              [style.background]="color"
+              [class.active]="selectedColor() === color"
+              (click)="selectUsedColor(color)">
+                        </span>
+          }
+        </div>
+      </div>
+      <div class="grid" (mouseup)="stopPainting()" (mouseleave)="stopPainting()">
+        @for (row of grid(); track $index; let i = $index) {
+          <div class="row">
+            @for (cell of row; track $index; let j = $index) {
+              <div class="cell"
+                   [style.background]="cell"
+                   (mousedown)="startPainting(i, j)"
+                   (mouseover)="hoverPaint(i, j)">
+              </div>
+            }
+          </div>
+        }
+      </div>
+      <div class="buttons">
+        <app-button
+          [isDisable]="!canUndo()"
+          (clickEvent)="undo()"
+          [variant]="'secondary'"
+          [label]="'↩'">
+        </app-button>
+        <app-button
+          [isDisable]="!canRedo()"
+          (clickEvent)="redo()"
+          [variant]="'secondary'"
+          [label]="'↪'">
+        </app-button>
+        <app-button
+          (clickEvent)="clearGrid()"
+          [variant]="'ghost'"
+          [label]="'Effacer'">
+        </app-button>
+        <app-button
+          [variant]="'primary'"
+          [label]="'Sauvegarder'">
+        </app-button>
+      </div>
+
+      @if (isPainting()) {
+        <p class="helper-text">Relâchez la souris pour arrêter de dessiner</p>
+      }
+    </div>
+  </div>
+</div>

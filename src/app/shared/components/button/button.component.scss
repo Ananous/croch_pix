@@ -1,0 +1,89 @@
+button {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+::ng-deep app-button svg {
+  width: 1.2em;
+  height: 1.2em;
+  fill: currentColor;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.secondary {
+  border: 2px solid var(--color-light-pink);
+  background: var(--color-light-pink);
+  color: var(--color-very-light-pink-2);
+
+  &:hover {
+    background: var(--color-very-light-pink-2-t);
+    color: var(--color-light-pink);
+  }
+}
+
+.ghost {
+  border: 2px solid var(--color-light-pink);
+  background: var(--color-very-light-pink);
+  color: var(--color-light-pink);
+
+  &:hover {
+    background: var(--color-light-pink);
+    color: var(--color-very-light-pink-2);
+  }
+}
+
+.primary {
+  border: 2px solid var(--color-pink);
+  background: var(--color-pink);
+  color: var(--color-very-light-pink-2);
+
+  &:hover {
+    background: var(--color-light-pink);
+    color: var(--color-pink);
+  }
+}
+
+.little {
+  padding: 0.8rem;
+}
+
+.normal {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.big {
+  padding: 1.2rem;
+  font-size: 1.3rem;
+}
+
+.normal:hover {
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background: var(--color-very-light-pink-2-t);
+  color: var(--color-grey); /* couleur grisée */
+  border-color: var(--color-grey); /* bordure grisée */
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+button:disabled:hover {
+  box-shadow: none;
+  background: var(--color-very-light-pink-2-t);
+  color: var(--color-grey);
+}
